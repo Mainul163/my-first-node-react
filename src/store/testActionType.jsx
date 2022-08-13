@@ -26,15 +26,14 @@ export const postData = async (userData) => {
 
 export const deleteData = async (id, data) => {
   const updateData = data.filter((data) => data?._id !== id);
-  const tempData = { ...data, updateData };
-  console.log("temp", tempData);
+
   const userDeleteData = await axios
     .delete(`http://localhost:5000/user/${id}`)
     .then((res) => res.data)
     .catch((error) => console.log(error));
-  console.log(userDeleteData);
+
   return {
     type: DELETE_USER_DATA,
-    payload: userDeleteData,
+    payload: updateData,
   };
 };

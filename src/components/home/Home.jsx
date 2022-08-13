@@ -12,11 +12,12 @@ const Home = () => {
   useEffect(() => {
     getUser();
   }, []);
-  const handleUser = (id, data) => {
+  const handleUser = async (id, data) => {
     const confirm = window.confirm("Are you Sure?");
 
     if (confirm) {
-      dispatch(deleteData(id, data));
+      console.log(data, id);
+      dispatch(await deleteData(id, data));
     }
   };
   return (
@@ -24,13 +25,10 @@ const Home = () => {
       {/* <p>name: {user?.name}</p> */}
       <ul>
         {user?.map((data) => (
-          <>
-            {" "}
-            <li key={data?.id}>
-              {data?.name}{" "}
-              <button onClick={() => handleUser(data?._id, data)}>X</button>
-            </li>
-          </>
+          <li key={data?._id}>
+            {data?.name}{" "}
+            <button onClick={() => handleUser(data?._id, user)}>X</button>
+          </li>
         ))}
       </ul>
     </div>
