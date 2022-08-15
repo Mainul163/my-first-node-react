@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { deleteData, testGet } from "../../store/testActionType";
 
 const Home = () => {
@@ -27,7 +28,8 @@ const Home = () => {
         {user?.map((data) => (
           <li key={data?._id}>
             {data?.name}{" "}
-            <button onClick={() => handleUser(data?._id, user)}>X</button>
+            <button onClick={() => handleUser(data?._id, user)}>X</button>{" "}
+            <Link to={`/update/${data?._id}`}>Update</Link>
           </li>
         ))}
       </ul>
