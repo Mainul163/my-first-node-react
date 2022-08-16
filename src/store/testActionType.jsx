@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DELETE_USER_DATA, GET_TEST_DATA, POST_USER_DATA } from "./testAction";
+import { DELETE_USER_DATA, GET_TEST_DATA, POST_USER_DATA, SINGLE_USER_DATA,UPDATE_USER_DATA } from "./testAction";
 
 export const testGet = async () => {
   let getTestData = await axios
@@ -37,3 +37,22 @@ export const deleteData = async (id, data) => {
     payload: updateData,
   };
 };
+
+export const singleUserData = async (id) => {
+
+  const singleData=await axios.get(`http://localhost:5000/user/${id}`).then(res => res.data).catch(error => console.log(error))
+return{
+  type:SINGLE_USER_DATA,
+  payload:singleData
+}
+}
+
+
+export const updateUserData=async(id,user)=>{
+console.log(user,id);
+  const update=await axios.put(`http://localhost:5000/user/${id}`,user).then(res => res.data).catch(error => console.log(error))
+  return{
+    type:UPDATE_USER_DATA,
+    payload:update
+  }
+}
