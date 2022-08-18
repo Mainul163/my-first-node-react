@@ -1,4 +1,4 @@
-import { DELETE_USER_DATA, GET_TEST_DATA, POST_USER_DATA, SINGLE_USER_DATA } from "./testAction";
+import { DELETE_USER_DATA, GET_TEST_DATA, SINGLE_USER_DATA } from "./testAction";
 
 const testData = {
   testDataList: [],
