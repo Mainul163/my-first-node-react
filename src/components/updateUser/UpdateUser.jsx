@@ -35,7 +35,7 @@ useEffect(()=>{
       <form onSubmit={handleAddUser}>
         <input type="text" name="name" placeholder="name" defaultValue={value?.name} required />
         <br /> <br />
-        <input type="email" name="email" value={singleUser?.email} placeholder="email" required />
+        <input type="email" name="email" defaultValue={singleUser?.email} placeholder="email" required />
         <br /> <br />
         <input type="submit" value="add new user" />
       </form>
