@@ -27,10 +27,9 @@ useEffect(()=>{
   
 },[id,singleUser?.name,singleUser?.email])
 
-
   return (
     <div>
-      <p>id : {id}</p><br />
+      
       
       <form onSubmit={handleAddUser}>
         <input type="text" name="name" placeholder="name" defaultValue={value?.name} required />
